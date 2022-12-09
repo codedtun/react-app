@@ -11,14 +11,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Cache node_modules
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
       - name: Use NodeJS
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: "12.x"
         # run: npm ci
@@ -28,7 +28,7 @@ jobs:
         env:
           CI: true
       - name: Upload Test Coverage
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
           name: code-coverage
           path: coverage
@@ -38,7 +38,7 @@ jobs:
         # run: npm install -g surge
       - name: Upload Build Folder
         if: github.event_name == 'push'
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
           name: build
           path: build
