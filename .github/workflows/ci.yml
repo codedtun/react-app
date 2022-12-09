@@ -20,12 +20,12 @@ jobs:
         env:
           CI: true
       - name: Build Project
-        if: github.event_name == "push"
+        if: github.event_name == 'push'
         # run: npm ci
         run: npm run build
         # run: npm install -g surge
       - name: Deploy to staging
-        if: github.event_name == "push"
+        if: github.event_name == 'push'
         run: npx surge --project ./build --domain https://various-bean.surge.sh/
         env:
           SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
