@@ -2,4 +2,4 @@
 *.js @codetun
 *.yml @codetun
 /public/ @codetun
-
+/build/ @codetun
