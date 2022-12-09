@@ -1,0 +1,5 @@
+* @codetun
+*.js @codetun
+*.yml @codetun
+/public/ @codetun
+
