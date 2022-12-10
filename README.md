@@ -1,4 +1,4 @@
-![](https://github.com/codedtun/react-app/tree/workflows/CI/badge.svg?branch=develop&event=push)
+[![CI](https://github.com/codedtun/react-app/actions/workflows/ci.yml/badge.svg)](https://github.com/codedtun/react-app/actions/workflows/ci.yml)
 
 This project was bootstrapped with Create React App.
 
