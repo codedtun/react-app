@@ -1,6 +1,7 @@
 * @codetun
-*.js @codetun
-*.yml @tundeolomu
+*.js @codetun, @tundeolomu
+*.yml @tundeolomu, @codedtun
 
-/public/ @codetun
-/build/ @codetun
+/public/ @codedtun, @tundeolomu
+/build/ @codedtun, @tundeolomu
+/woekflows/ @codedtun, @tundeolomu
