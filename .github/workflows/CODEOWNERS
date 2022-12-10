@@ -1,5 +1,6 @@
 * @codetun
 *.js @codetun
 *.yml @tundeolomu
+
 /public/ @codetun
 /build/ @codetun
