@@ -8,6 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
+      SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
     steps:
       - uses: actions/checkout@v3
       - name: Cache node_modules
@@ -53,9 +56,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # - uses: actions/download-artifact
-      - name: Deploy to staging
-        if: github.event_name == 'push'
+      - name: Deploy to Staging
+        if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
         run: npx surge --project ./build --domain https://various-bean.surge.sh/
+      - name: Deploy to Production
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        run: npx surge --project ./build --domain https://protective-lunchroom.surge.sh/
+      - name: Upload Coverage Reports
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        run: npx codecov
         env:
-          SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
-          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
