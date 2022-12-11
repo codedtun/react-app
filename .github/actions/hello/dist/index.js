@@ -1877,7 +1877,7 @@ const core = __webpack_require__(470);
 const github = __webpack_require__(469);
 
 try {
-  // throw new Error("some error has prevented the code from running");
+  throw new Error("some error has prevented the code from running");
 
   const name = core.getInput("who-to-greet");
   console.log("hello ${name}");

@@ -2,7 +2,7 @@ const core = require("@actions/core");
 const github = require("@actions/github");
 
 try {
-  // throw new Error("some error has prevented the code from running");
+  throw new Error("some error has prevented the code from running");
 
   const name = core.getInput("who-to-greet");
   console.log("hello ${name}");
