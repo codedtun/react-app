@@ -1877,15 +1877,15 @@ const core = __webpack_require__(470);
 const github = __webpack_require__(469);
 
 try {
-  // throw new Error("some error has prevented the code from running");
+  //   throw new Error("some error message");
 
-  core.debug("Debug Message");
-  core.warning("Warning Message");
-  core.error("Error Message");
+  core.debug("Debug message");
+  core.warning("Warning message");
+  core.error("Error message");
 
   const name = core.getInput("who-to-greet");
   core.setSecret(name);
-  console.log("hello ${name}");
+  console.log(`Hello ${name}`);
 
   const time = new Date();
   core.setOutput("time", time.toTimeString());
@@ -1894,7 +1894,7 @@ try {
   console.log(JSON.stringify(github, null, "\t"));
   core.endGroup();
 
-  core.exportVariable("Hello", "hello");
+  core.exportVariable("HELLO", "hello");
 } catch (error) {
   core.setFailed(error.message);
 }
